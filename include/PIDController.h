@@ -45,13 +45,15 @@ class PIDController {
 
    */
   double computeNewVelocity(const double& targetSetPoint,
+                            const double& actualVelocity);
+  /*double computeNewVelocity(const double& targetSetPoint,
                             const double& actualVelocity) {
     double v_cmd = computeNewPosition(targetSetPoint);
     double v_error = v_cmd - actualVelocity;
     return Kp * v_error + Ki * (v_error + sumOfVelocityError)
         + (Kd * v_error) / T;
   }
-  ;
+   ;*/
   /**
 
    * @brief computeNewPosition() will calculate the new position command for a given target position
@@ -61,11 +63,12 @@ class PIDController {
    * @return command of new position
 
    */
-  double computeNewPosition(const double& targetSetPoint) {
+  double computeNewPosition(const double& targetSetPoint);
+  /* double computeNewPosition(const double& targetSetPoint) {
     double p_error = CurrentPosition - targetSetPoint;
     return Kp * p_error + Ki * (p_error + sumOfPositionError)
         + (Kd * p_error) / T;
   }
-  ;
+   ;*/
 };
 #endif  // INCLUDE_PIDCONTROLLER_H_
