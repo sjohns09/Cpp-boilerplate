@@ -1,5 +1,25 @@
+// "Copyright [2017] <Copyright MichaelKam>"
 #include <gtest/gtest.h>
+#include "PIDController.h"
+#include <iostream>
+using std::cout;
+using std::endl;
 
-TEST(dummy, should_pass) {
-  EXPECT_EQ(1, 1);
+TEST(PIDControllerTest, computePositiveNewPosition) {
+  PIDController PID;
+  const double e = 200;
+  EXPECT_LT(0, PID.computeNewPosition(e));
+}
+
+TEST(PIDControllerTest, computeNegativeNewPosition) {
+  PIDController PID;
+  const double e = -200;
+  EXPECT_GT(0, PID.computeNewPosition(e));
+}
+
+TEST(PIDControllerTest, computeNewVelocity) {
+PIDController PID;
+double targetSetPoint = 70;
+double actualVelocity = 20;
+  EXPECT_GT(2000, PID.computeNewVelocity(targetSetPoint, actualVelocity));
 }
