@@ -16,7 +16,7 @@ double PIDController::computeNewVelocity(const double& targetSetPoint,
 }
 
 double PIDController::computeNewPosition(const double& targetSetPoint) {
-  double p_error = targetSetPoint - CurrentPosition;
+  double p_error = CurrentPosition - targetSetPoint;
   return Kp * p_error + Ki * (p_error + sumOfPositionError) + (Kd * p_error) / T;
 }
 
