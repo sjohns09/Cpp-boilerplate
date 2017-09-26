@@ -27,6 +27,6 @@ TEST(PIDControllerTest, computeNewVelocity) {
   PIDController PID;
   double targetSetPoint = 70;
   double actualVelocity = 20;
-  EXPECT_GT(2000, PID.computeNewVelocity(targetSetPoint, actualVelocity));
+  EXPECT_EQ(2000, PID.computeNewVelocity(targetSetPoint, actualVelocity));
 }
 
