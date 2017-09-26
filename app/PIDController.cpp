@@ -7,18 +7,25 @@
  */
 #include "PIDController.h"
 
-double PIDController::computeNewVelocity(const double& targetSetPoint,
-                                         const double& actualVelocity) {
 
+double PIDController::computeNewVelocity(const double& targetSetPoint,
+                          const double& actualVelocity) {
   double v_cmd = computeNewPosition(targetSetPoint);
   double v_error = v_cmd - actualVelocity;
-  return Kp * v_error + Ki * (v_error + sumOfVelocityError) + (Kd * v_error) / T;
+  double newVelocity = Kp * v_error + Ki * (v_error + sumOfVelocityError)
+      + (Kd * v_error) / T;
+  if (newVelocity > 2000) {
+    newVelocity = 2000;
+  }
+  return newVelocity;
 }
+ ;
 
 double PIDController::computeNewPosition(const double& targetSetPoint) {
-  double p_error = CurrentPosition - targetSetPoint;
-  return Kp * p_error + Ki * (p_error + sumOfPositionError) + (Kd * p_error) / T;
+  double p_error = targetSetPoint - CurrentPosition;
+  return Kp * p_error + Ki * (p_error + sumOfPositionError)
+      + (Kd * p_error) / T;
 }
-
+ ;
 
 

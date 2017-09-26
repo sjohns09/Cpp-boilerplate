@@ -16,10 +16,13 @@ using std::endl;
 
 int main() {
   PIDController PIDForUAV;
-  double targetSetPoint = 70;  // set targetSetPoint=70
-  double actualVelocity = 20;
+  double targetSetPoint = 10;  // set targetSetPoint=70
+  double actualVelocity = 0;
   double NewVelocity;
+
   NewVelocity = PIDForUAV.computeNewVelocity(targetSetPoint, actualVelocity);
+
   cout << "NewVelocity= " << NewVelocity << endl;
+
   return 0;
 }
