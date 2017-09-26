@@ -2,6 +2,20 @@
 [![Build Status](https://travis-ci.org/michael081906/Cpp-boilerplate.svg?branch=master)](https://travis-ci.org/michael081906/Cpp-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/michael081906/Cpp-boilerplate/badge.svg)](https://coveralls.io/github/michael081906/Cpp-boilerplate)
 ---
+
+## Discussion
+9/25/17 SJ
+ - The design of the PID controller was simple and easy to implement. It was also very different from my implementation which allowed me to see another way of implementing which was rewarding.
+ - I discovered a mistake in the unit test computeNewVelocity which compared the expected values as GT and it should have been using EQ. I fixed this.
+ - A comment I had: In the code I noticed the functions were called with "const [type]&" variables. I believe this is a bit confusing since a referenced variable is typically passed that way so that the value can be altered within the function, but making a variable const is saying that the variable will not be altered within the function.  According to a little research there apparently are cases where you would want to pass a constant reference variable, but this seems like not the best use case for that, and could cause unexpected behavior within a more complicated function.
+
+## TODO 
+9/25/17 SJ
+ - Conider adding a test case for computing negative velocities
+ - Consider adding a saturation check for negative velocities in the computeNewVelocity function
+ - Consider adding more detail in the Doxygen comments at the beginning of each file.
+
+
 ## Overview
 
 Simple starter C++ project with:
